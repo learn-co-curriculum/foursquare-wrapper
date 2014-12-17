@@ -62,7 +62,7 @@ class Neighborhood
 
 end
 
-c = Neighborhood.new("East Village, New York, NY", "VYJTGNTSNT1OHG0AURLNS0DVXPS5GKBMSW0QBKFFAFK3NMAU", "KXSEM1VPP4MXSEWX1UZCLMHONDUF5CLAHH2G4CFZUOBL1NUD", "Dinner")
+c = Neighborhood.new("East Village, New York, NY", secret, id, "Dinner")
 c.search
 c.venue_ids
 puts c.check_group
