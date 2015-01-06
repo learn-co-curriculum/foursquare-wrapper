@@ -24,6 +24,7 @@ This library is wrapped in a Neighborhood class.
 A neighborhood has the following attributes:
 * group
 * location
+* venues
 * correct_venues
 
 ### Create a New Neighborhood

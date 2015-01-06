@@ -10,6 +10,7 @@ class Neighborhood
   def initialize(location, group)
     @location = location
     @correct_venues = []
+    @venues = []
     @group = group
   end
 
