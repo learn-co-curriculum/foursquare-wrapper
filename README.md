@@ -1,6 +1,6 @@
-## Foursquare API Wrapper
+## Foursquare Wrapper
 
-This is a Ruby libray that wraps the Foursquare API. This gem depends on a gem called HTTParty, which makes HTTP requests to the Foursquare server.
+This is a Ruby libray that wraps the Foursquare API, aka we get to write Ruby code to get Foursquare data!
 
 ###Installation
 1. If you haven't already, please create a new directory on your Desktop called `foursquare`. You can create this by typing `mkdir foursquare`. 
@@ -14,9 +14,9 @@ This is a Ruby libray that wraps the Foursquare API. This gem depends on a gem c
 
 ###Usage
 
-####Setting up Client Id and Secret
+####Setting up Client ID and Secret
 
-Please copy and paste the client id and client secret provided to you on lines 8 and 9. You will want to put the id and secret in your code as a string, so make sure you surround them in quotation marks.
+Please copy and paste the client id and client secret provided to you on lines 8 and 9 after the equals sign. You will want to put the id and secret in your code as a string, so make sure you surround them in quotation marks. You also want to uncomment out the lines of code, so please delete the `#` in front of the variables.
 
 ####Classes
 This library is wrapped in a Neighborhood class.
