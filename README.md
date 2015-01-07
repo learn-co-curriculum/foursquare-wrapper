@@ -1,3 +1,11 @@
+---
+tags: kids, ruby, foursquare, apis
+languages: ruby
+level: 1
+type: Intro, Documentation
+---
+
+
 ## Foursquare Wrapper
 
 This is a Ruby libray that wraps the Foursquare API, aka we get to write Ruby code to get Foursquare data!
