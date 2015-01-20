@@ -5,8 +5,8 @@ class Neighborhood
   attr_accessor :location, :recommended_venues, :venue_ids, :venues_to_search, :venues_by_group, :venues_by_tag
   
   ##!!!NEEDS TO BE FILLED OUT WITH CLIENT ID AND SECRET PROVIDED BY FOURSQUARE
-  CLIENT_ID = "JUUFHYCI1ZWKTMHF5GEG1ZODCTREEO0TJRCC02UPOYCYJIGB"
-  CLIENT_SECRET = "GYUAW432FZ1UJ4PX4TM3IGSYNO2QAHMNAV4OR2DUKCHMJULJ"
+  # CLIENT_ID = ""
+  # CLIENT_SECRET = ""
 
   def initialize(location)
     @location = location
@@ -26,7 +26,7 @@ class Neighborhood
   end
   # Example uri https://api.foursquare.com/v2/venues/explore?near=East%20Village,%20New%20York,%20NY&client_id=JUUFHYCI1ZWKTMHF5GEG1ZODCTREEO0TJRCC02UPOYCYJIGB&client_secret=GYUAW432FZ1UJ4PX4TM3IGSYNO2QAHMNAV4OR2DUKCHMJULJ&v=20150120&categoryId=4d4b7105d754a06374d81259
 
-  # Our recommended venue list doesn't have all the info we need to search by group or tag so we need to make an API call for more info on each venue. We need the venue ids to do that.
+  # Recommended venue list doesn't have necessary info to search by group or tag - we need to get venue ids and make an API call to pull all the info for each venue. 
   def get_venue_ids
     @recommended_venues.each do |venue| 
       @venue_ids << venue["venue"]["id"] 
@@ -44,7 +44,7 @@ class Neighborhood
   end
   # Example uri: https://api.foursquare.com/v2/venues/4acca438f964a5201dc920e3?client_id=JUUFHYCI1ZWKTMHF5GEG1ZODCTREEO0TJRCC02UPOYCYJIGB&client_secret=GYUAW432FZ1UJ4PX4TM3IGSYNO2QAHMNAV4OR2DUKCHMJULJ&v=20150120&m=foursquare
 
-  # Groups to search by include ["outdoor seating","payments","price","reservations","music","drinks","dining options","parking","wheelchair accessible" ]
+  # Example groups to search by include ["outdoor seating","payments","price","reservations","music","drinks","dining options","parking","wheelchair accessible" ]
   def search_by_group(group="Outdoor Seating")
     @venues_to_search.each do |venue|
       venue['attributes']['groups'].each do |groups|
@@ -60,8 +60,8 @@ class Neighborhood
     @venues_by_group
   end
 
-  # Here is an example list of tags from Momofuku Ssam Bar ["david chang","pork","pork buns","spicy rice cakes","steamed buns","trendy","zagat-rated"]
-  def search_by_tag(tag="steamed buns")
+  # Example tags that you can search for (from Momofuku Ssam Bar): ["david chang","pork","pork buns","spicy rice cakes","steamed buns","trendy","zagat-rated"]
+  def search_by_tag(tag="trendy")
     @venues_to_search.each do |venue|
       venue["tags"].each do |venue_tag|
         if venue_tag.downcase == tag.downcase
