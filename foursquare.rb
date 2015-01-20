@@ -60,7 +60,7 @@ class Neighborhood
     @venues_by_group
   end
 
-  # Example tags that you can search for (from Momofuku Ssam Bar): ["david chang","pork","pork buns","spicy rice cakes","steamed buns","trendy","zagat-rated"]
+  # Example tags that you can search for (from Momofuku Ssam Bar): ["david chang","pork","steamed buns","trendy","zagat-rated"]
   def search_by_tag(tag="trendy")
     @venues_to_search.each do |venue|
       venue["tags"].each do |venue_tag|
