@@ -1,4 +1,5 @@
 require 'httparty'
+require_relative './restaurant.rb'
 
 class Neighborhood
   
@@ -24,7 +25,11 @@ class Neighborhood
     encoded = URI.parse(URI.encode(uri)) # to handle spaces in the location
     @api_response = HTTParty.get(encoded)
     @api_response['response']['groups'][0]["items"].each do |item|
-      @recommended_venues << item["venue"]
+      name = item["venue"]["name"]
+      phone = item["venue"]["contact"]["formattedPhone"]
+      address = item["venue"]["location"]["address"]
+      website = item["venue"]["url"] 
+      @recommended_venues << Restaurant.new(name,phone,address,website)
     end
     puts encoded # So we can see the uri that is being used in the HTTP get request
   end
