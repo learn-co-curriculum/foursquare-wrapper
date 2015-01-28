@@ -24,7 +24,8 @@ class Neighborhood
     @api_response['response']['groups'][0]["items"].each do |item|
       @recommended_venues << item["venue"]
     end
-    puts encoded # So we can see the uri that is being used in the HTTP get request
+    # puts encoded # uncomment to see the uri that is being used in the HTTP get request
+    @recommended_venues
   end
 
   # Example groups to search by include ["outdoor seating","credit cards","price","reservations","dining options","street parking","wheelchair accessible" ]
