@@ -22,10 +22,10 @@ class Neighborhood
     encoded = URI.parse(URI.encode(uri)) # to handle spaces in the location
     @api_response = HTTParty.get(encoded)
     @api_response['response']['groups'][0]["items"].each do |item|
-      @recommended_venues << item["venue"]
+      @recommended_venues << item["venue"]["name"]
     end
-    # puts encoded # uncomment to see the uri that is being used in the HTTP get request
     @recommended_venues
+    # puts encoded # uncomment to see the uri that is being used in the HTTP get request
   end
 
   # Example groups to search by include ["outdoor seating","credit cards","price","reservations","dining options","street parking","wheelchair accessible" ]
