@@ -11,11 +11,13 @@ type: Intro, Documentation
 This is a Ruby library that wraps the Foursquare API, i.e. we get to write Ruby code to get Foursquare data!
 
 ###Installation
-1. If you haven't already, please create a new directory for your project - you might want to call it something like `foursquare-app`. Hint: You can create this from in terminal by typing `mkdir foursquare-app`. 
+1. If you haven't already, create a new directory for your project - you might want to call it something like `foursquare-app`. 
+  * Hint: You can create this from in terminal by typing `mkdir foursquare-app`. 
 
-2. Inside of the `foursquare-app` direcrory, please create a file called `foursquare.rb`. Hint: You can create this file from your command line, by entering the `foursquare-app` directory and typing `touch foursquare.rb`.
+2. Inside of the `foursquare-app` directory, create a file called `foursquare.rb`. 
+  * Hint: You can create this file from your command line, by entering the `foursquare-app` directory and typing `touch foursquare.rb`.
 
-3. Please copy all of the code in `foursquare.rb` from this repository and paste it into the `foursquare.rb` file that you created on your computer.
+3. Copy all of the code in `foursquare.rb` from this repository and paste it into the `foursquare.rb` file that you created on your computer.
 
 4. In terminal, from inside any directory, type `gem install httparty`
 
