@@ -1,9 +1,9 @@
 require 'httparty'
 
 class Neighborhood
-  
+
   attr_accessor :location, :recommended_venues, :venue_ids, :venues_for_search, :venues_by_group, :api_response
-  
+
   ##!!!NEEDS TO BE FILLED OUT WITH CLIENT ID AND SECRET PROVIDED BY FOURSQUARE
   # CLIENT_ID = ""
   # CLIENT_SECRET = ""
@@ -14,6 +14,7 @@ class Neighborhood
     @venue_ids = []
     @venues_for_search = []
     @venues_by_group = []
+    @venues_by_tag = []
   end
 
   # This user the Foursquare explore endpoint to pull recommended food venues for a location
@@ -40,15 +41,26 @@ class Neighborhood
             end
           end
         end
-      end  
+      end
     end
     @venues_by_group
   end
 
-  # Recommended venue list doesn't have necessary info to search by group - we need to get venue ids and make an API call for each venue. 
+  # Example tags ["trendy","zagat-rated","david chang","pork","steamed buns"]
+  def filter_by_tag(tag="trendy")
+    @venues_for_search.each do |venue|
+      venue["tags"].each do |venue_tag|
+        if venue_tag.downcase == tag.downcase
+          @venues_by_tag << venue["name"]
+        end
+      end
+    end
+  end
+
+  # Our recommended venue list doesn't have all the necessary info to pull out info like "outdoor seating". To get that info we need to get venue ids and make an API call for each venue.
   def get_venue_ids
-    @recommended_venues.each do |venue| 
-      @venue_ids << venue["id"] 
+    @recommended_venues.each do |venue|
+      @venue_ids << venue["id"]
     end
     @venue_ids
   end

@@ -11,10 +11,10 @@ type: Intro, Documentation
 This is a Ruby library that wraps the Foursquare API, i.e. we get to write Ruby code to get Foursquare data!
 
 ###Installation
-1. If you haven't already, create a new directory for your project - you might want to call it something like `foursquare-app`. 
-  * Hint: You can create this from in terminal by typing `mkdir foursquare-app`. 
+1. If you haven't already, create a new directory for your project - you might want to call it something like `foursquare-app`.
+  * Hint: You can create this from in terminal by typing `mkdir foursquare-app`.
 
-2. Inside of the `foursquare-app` directory, create a file called `foursquare.rb`. 
+2. Inside of the `foursquare-app` directory, create a file called `foursquare.rb`.
   * Hint: You can create this file from your command line, by entering the `foursquare-app` directory and typing `touch foursquare.rb`.
 
 3. Copy all of the code in `foursquare.rb` from this repository and paste it into the `foursquare.rb` file that you created on your computer.
@@ -54,7 +54,7 @@ We'll be using these attributes to narrow down our search to find a group of rec
   east_village = Neighborhood.new("East Village, New York, NY")
 ```
 
-In this code, we are creating a new instance of the Neighborhood class by calling `Neighborhood.new`. We're storing that new instance in a variable called `east_village`. 
+In this code, we are creating a new instance of the Neighborhood class by calling `Neighborhood.new`. We're storing that new instance in a variable called `east_village`.
 
 The `initialize` method accepts one argument, the neighborhood you want to search. In this case, we're passing in `East Village, New York, NY`. Next
 
@@ -74,14 +74,14 @@ This method uses the Foursquare API "venues/explore" endpoint to pull a list of 
 east_village.filter_by_group("outdoor seating")
 ```
 
-The `filter_by_group` method checks for restaurants that match the specified grouping like "Outdoor Seating". If a restaurant matches the group the restaurant name is added to a `@venues_by_group` array. This method is set up to only store the restaurant names, but it can be tweaked to grab additional info for each restaurant. 
+The `filter_by_group` method checks for restaurants that match the specified grouping like "Outdoor Seating". If a restaurant matches the group the restaurant name is added to a `@venues_by_group` array. This method is set up to only store the restaurant names, but it can be tweaked to grab additional info for each restaurant.
 
-The `filter_by_group` method relies on two other methods that are called in a cascade - `filter_by_group` calls `get_venues_for_search` which calls `get_venue_ids`. You don't necessarily need to know how these methods work to use the wrapper, but details are included below. 
+The `filter_by_group` method relies on two other methods that are called in a cascade - `filter_by_group` calls `get_venues_for_search` which calls `get_venue_ids`. You don't necessarily need to know how these methods work to use the wrapper, but details are included below.
 
 
 #### Other Methods in the Wrapper
 
-The `filter_by_group` method relies on a couple additional methods to narrow down the recommended restaurants to a specific group. 
+The `filter_by_group` method relies on a couple additional methods to narrow down the recommended restaurants to a specific group.
 We have a ton of info about each restaurant in our `@recommended_venues` list, but if we want to drill deeper and see which venues are wheelchair accessible or have outdoor seating we need EVEN more detail. The methods below are used to create API calls to pull more info on each of the venues in our `@recommended_venues` list.
 
 ### get_venue_ids
