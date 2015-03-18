@@ -12,7 +12,7 @@ This is a Ruby library that wraps the Foursquare API, i.e. we get to write Ruby 
 
 ###Installation
 1. If you haven't already, create a new directory for your project - you might want to call it something like `foursquare-app`.
-  * Hint: You can create this from in terminal by typing `mkdir foursquare-app`.
+  * Hint: You can create this from your terminal by typing `mkdir foursquare-app`.
 
 2. Inside of the `foursquare-app` directory, create a file called `foursquare.rb`.
   * Hint: You can create this file from your command line, by entering the `foursquare-app` directory and typing `touch foursquare.rb`.
@@ -35,8 +35,9 @@ A neighborhood has the following attributes:
 * location
 * recommended_venues
 * venue_ids
-* venues_for_search
+* venues_to_filter
 * venues_by_group
+* venues_by_tag
 
 We'll be using these attributes to narrow down our search to find a group of recommended restaurant that fit certain search criteria. Here are the types of groups that we can search for:
 
