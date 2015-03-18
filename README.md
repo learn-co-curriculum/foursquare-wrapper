@@ -66,7 +66,7 @@ The `initialize` method accepts one argument, the neighborhood you want to searc
 east_village.get_recommended_venues
 ```
 
-This method uses the Foursquare API "venues/explore" endpoint to pull a list of up to 30 recommended restaurants for the selected neighborhood and stores all of their info in the `@recommended_venues1` array.
+This method uses the Foursquare API "venues/explore" endpoint to pull a list of up to 30 recommended restaurants for the selected neighborhood (we're limiting it to 10 for now) and stores all of their info in the `@recommended_venues` array.
 
 
 #### Filter by Group
@@ -93,13 +93,13 @@ We have a ton of info about each restaurant in our `@recommended_venues` list, b
 
 The `get_venue_ids` method takes the array of all the recommended restaurants, and iterates through them to pull the unique id associated with each. This method returns an `@venue_ids` array, with just the unique id number for each restaurant.
 
-#### get_venues_for_search
+#### get_venues_for_filtering
 
 ```ruby
-east_village.get_venues_for_search
+east_village.get_venues_for_filtering
 ```
 
-The `get_venues_for_search` method iterates through the `@venue_ids` array, and makes a GET request to the Foursquare API to get more information for each venue. It returns a `@venues_for_search` array with all of the venue info for each restaurant.
+The `get_venues_for_filtering` method iterates through the `@venue_ids` array, and makes a GET request to the Foursquare API to get more information for each venue. It returns a `@venues_to_filter` array with all of the venue info for each restaurant.
 
 
 
