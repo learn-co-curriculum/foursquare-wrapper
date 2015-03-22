@@ -77,13 +77,23 @@ east_village.filter_by_group("outdoor seating")
 
 The `filter_by_group` method checks for restaurants that match the specified grouping like "Outdoor Seating". If a restaurant matches the group the restaurant name is added to a `@venues_by_group` array. This method is set up to only store the restaurant names, but it can be tweaked to grab additional info for each restaurant.
 
-The `filter_by_group` method relies on two other methods that are called in a cascade - `filter_by_group` calls `get_venues_for_search` which calls `get_venue_ids`. You don't necessarily need to know how these methods work to use the wrapper, but details are included below.
+The `filter_by_group` method relies on two other methods that are called in a cascade - `filter_by_group` calls `get_venues_for_filtering` which calls `get_venue_ids`. You don't necessarily need to know how these methods work to use the wrapper, but details are included below.
 
+#### Filter by Tag
+
+```ruby
+east_village.filter_by_tag("trendy")
+```
+
+The `filter_by_tag` method checks for restaurants that have a tag that matches what you are searching for - like "trendy". If a restaurant has that tag the restaurant name is added to a `@venues_by_tag` array. This method is set up to only store the restaurant names, but it can be tweaked to grab additional info for each restaurant.
+
+The `filter_by_tag` method also relies the `get_venues_for_filtering` and `get_venue_ids` methods.
 
 #### Other Methods in the Wrapper
 
-The `filter_by_group` method relies on a couple additional methods to narrow down the recommended restaurants to a specific group.
-We have a ton of info about each restaurant in our `@recommended_venues` list, but if we want to drill deeper and see which venues are wheelchair accessible or have outdoor seating we need EVEN more detail. The methods below are used to create API calls to pull more info on each of the venues in our `@recommended_venues` list.
+The `filter_by_group` and `filter_by_tag` methods rely on a couple additional methods to narrow down the recommended restaurants.
+
+We have a ton of info about each restaurant in our `@recommended_venues` list, but if we want to drill deeper and see which venues are wheelchair accessible or have outdoor seating or are tagged as "trendy" we need EVEN more detail. The methods below are used to create API calls to pull more info on each of the venues in our `@recommended_venues` list.
 
 ### get_venue_ids
 
@@ -99,7 +109,7 @@ The `get_venue_ids` method takes the array of all the recommended restaurants, a
 east_village.get_venues_for_filtering
 ```
 
-The `get_venues_for_filtering` method iterates through the `@venue_ids` array, and makes a GET request to the Foursquare API to get more information for each venue. It returns a `@venues_to_filter` array with all of the venue info for each restaurant.
+The `get_venues_for_filtering` method iterates through the `@venue_ids` array, and makes a GET request to the Foursquare API to get all of the information that Foursquare has for each venue. It returns a `@venues_to_filter` array with the info we need to filter by groups and tags.
 
 
 
