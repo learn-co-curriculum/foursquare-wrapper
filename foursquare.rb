@@ -29,9 +29,10 @@ class Neighborhood
     # puts encoded # uncomment to see the uri that is being used in the HTTP get request
   end
 
-  # Example groups to search by include ["outdoor seating","credit cards","price","reservations","dining options","street parking","wheelchair accessible" ]
+  # Example groups to search by include ["outdoor seating","credit cards","wheelchair accessible","reservations","dining options"]
   def filter_by_group(group)
-    get_venues_for_filtering
+    get_venues_for_filtering if @venues_to_filter.empty?
+    @venues_by_group = []
     @venues_to_filter.each do |venue|
       venue['attributes']['groups'].each do |groups|
         if groups["name"].downcase == group.downcase
@@ -46,9 +47,10 @@ class Neighborhood
     @venues_by_group
   end
 
-  # Example tags ["trendy","zagat-rated","david chang","pork","steamed buns"]
+  # Example tags ["zagat-rated","brunch","fried chicken","ice cream"]
   def filter_by_tag(tag)
-    get_venues_for_filtering
+    get_venues_for_filtering if @venues_to_filter.empty?
+    @venues_by_tag = []
     @venues_to_filter.each do |venue|
       venue["tags"].each do |venue_tag|
         if venue_tag.downcase == tag.downcase
@@ -56,6 +58,7 @@ class Neighborhood
         end
       end
     end
+    @venues_by_tag
   end
 
   # Our recommended venue list doesn't have all the info we want - like does the restaurant have "outdoor seating". To get that info we need to make an API call for more info on each venue - and to do that we need to get each venue's unique id.
@@ -67,7 +70,7 @@ class Neighborhood
   end
 
   def get_venues_for_filtering
-    get_venue_ids
+    get_venue_ids if @venues_ids.empty?
     @venue_ids.each do |id|
       uri = "https://api.foursquare.com/v2/venues/#{id}?client_id=#{CLIENT_ID}&client_secret=#{CLIENT_SECRET}&v=#{Time.now.strftime("%Y%m%d")}&m=foursquare"
       api_response = HTTParty.get(uri)
