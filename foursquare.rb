@@ -75,7 +75,7 @@ class Neighborhood
     @venue_ids.each do |id|
       uri = "https://api.foursquare.com/v2/venues/#{id}?client_id=#{CLIENT_ID}&client_secret=#{CLIENT_SECRET}&v=#{Time.now.strftime("%Y%m%d")}&m=foursquare"
       api_response = HTTParty.get(uri)
-      puts uri # So we can see the uri that is being used in the HTTP GET request
+      # puts uri # So we can see the uri that is being used in the HTTP GET request
       @venues_to_filter << api_response['response']['venue']
     end
     @venues_to_filter
