@@ -58,7 +58,7 @@ class Neighborhood
     end
   end
 
-  # Our recommended venue list doesn't have all the necessary info to pull out info like "outdoor seating". To get that info we need to get venue ids and make an API call for more info on each venue.
+  # Our recommended venue list doesn't have all the info we want - like does the restaurant have "outdoor seating". To get that info we need to make an API call for more info on each venue - and to do that we need to get each venue's unique id.
   def get_venue_ids
     @recommended_venues.each do |venue|
       @venue_ids << venue["id"]
