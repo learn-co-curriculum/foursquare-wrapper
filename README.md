@@ -1,9 +1,4 @@
----
-tags: kids, ruby, foursquare, apis
-languages: ruby
-level: 1
-type: Intro, Documentation
----
+
 
 
 ## Foursquare Wrapper
