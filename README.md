@@ -112,4 +112,4 @@ The `get_venues_for_filtering` method iterates through the `@venue_ids` array, a
 
 
 
-<a href='https://learn.co/lessons/foursquare-wrapper' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/foursquare-wrapper' title='Foursquare Wrapper'>Foursquare Wrapper</a> on Learn.co and start learning to code for free.</p>
